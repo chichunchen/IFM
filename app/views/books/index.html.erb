@@ -1,7 +1,6 @@
-
 <div class="col-md-12">
   <div class="group">
-    <%= link_to 'New Book', new_book_path, :class => "btn btn-primary pull-right" %>\
+    <%= link_to 'New Book', new_book_path, :class => "btn btn-primary pull-right" %>
   </div>
   <table class="table table-hover">
     <thead> 
@@ -17,15 +16,14 @@
 
     <tbody>
       <% @books.each do |book| %>
-      <tr>
-        <td><%= book.name %></td>
+      <tr data-link="<%= book_path(book) %>">
+        <td><%= link_to book.name, book_path(book) %></td>
         <td><%= book.description %></td>
         <td>
           <%= image_tag(book.picture_url, :width => 200) if book.picture.present? %>
         </td>
         <td><%= book.price %></td>
         <td><%= book.course %></td>
-        <td><%= link_to 'Show', book %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>
         <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
