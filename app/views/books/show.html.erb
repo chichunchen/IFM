@@ -4,11 +4,11 @@
   </h1>
 
   <p>
-    <%= image_tag(@book.picture_url, :width => 600) if @book.picture.present? %>
+    <%= image_tag(@book.picture_url, :width => 250) if @book.picture.present? %>
   </p>
 
   <h4>
-    <%= @book.description %>
+    <%= simple_format(@book.description) %>
   </h4>
 
   <h4 class="lead">
@@ -18,6 +18,10 @@
   <h4>
     <%= @book.course %>
   </h4>
+
+  <h3>
+    <%= User.find(@book.user_id).name %>
+  </h3>
 
   <%= link_to 'Edit', edit_book_path(@book) %> |
   <%= link_to 'Back', books_path %>

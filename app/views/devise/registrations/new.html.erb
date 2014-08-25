@@ -7,6 +7,9 @@
     <%= devise_error_messages! %>
 
     <div class="form-inputs">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus:true, :class => "form-control" %>
+
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, :class => "form-control" %>
 

@@ -19,22 +19,26 @@
     <tbody>
       <% @books.each do |book| %>
       <tr data-link="<%= book_path(book) %>">
-        <td><%= link_to book.name, book_path(book) %></td>
-        <td><%= book.description %></td>
         <td>
-          <%= image_tag(book.picture_url, :width => 200) if book.picture.present? %>
+         <%= link_to book.name, book_path(book) %>
         </td>
-        <td><%= number_to_currency(book.price) %></td>
-        <td><%= book.course %></td>
+        <td>
+          <%= truncate(strip_tags(book.description), :length => 80) %>
+        </td>
+        <td>
+          <%= image_tag(book.picture_url, :width => 120) if book.picture.present? %>
+        </td>
+        <td> <%= number_to_currency(book.price) %> </td>
+        <td> <%= book.course %> </td>
         <td>
           <em> <%= book.updated_at %> </em>
         </td>
         <td>
-          <%= link_to User.find(book.user_id).email, '#' %>
+          <%= link_to User.find(book.user_id).name, '#' %>
         </td>
         <td>
           <% if current_user && book.editable_by?(current_user) %>
-              <%= link_to("編輯", 
+              <%= link_to("更新", 
                           edit_book_path(book), 
                           :class => "btn btn-sm btn-default")%>
 
