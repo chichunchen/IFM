@@ -1,3 +1,7 @@
-* multi picture upload
+* connect the seller
+
+* user reply in books
 
 * index order with different ways
+
+* multi picture upload
