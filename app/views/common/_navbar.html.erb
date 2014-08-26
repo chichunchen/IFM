@@ -9,6 +9,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if !current_user %>
+        <li> 
+          <%= link_to "臉書登入", user_omniauth_authorize_path(:facebook) %>
+        </li>
         <li> <%= link_to("註冊", new_user_registration_path) %> </li>
         <li> <%= link_to("登入", new_user_session_path) %> </li>
         <% else %>

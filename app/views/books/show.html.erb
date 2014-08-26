@@ -1,4 +1,11 @@
 <div class="col-md-12">
+  <div class="group">
+    <% if current_user && @book.editable_by?(current_user) %>
+      <%= link_to '修改', edit_book_path(@book), :class => "btn btn-primary pull-right" %>
+    <% end %>
+    <%= link_to 'Back', books_path, :class => "btn btn-default" %>
+  </div>
+
   <h1>
     <%= @book.name %>
   </h1>
@@ -22,7 +29,4 @@
   <h3>
     <%= User.find(@book.user_id).name %>
   </h3>
-
-  <%= link_to 'Edit', edit_book_path(@book) %> |
-  <%= link_to 'Back', books_path %>
 </div>
