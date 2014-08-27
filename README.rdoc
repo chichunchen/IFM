@@ -4,8 +4,6 @@ next:
 
 * fb message the seller
 
-* user reply in books
-
 * index order with different ways
 
 * multi picture upload
