@@ -2,11 +2,17 @@ source 'https://rubygems.org'
 
 gem 'bootstrap-sass'
 
-gem 'carrierwave'
+# gem 'mongoid', '3.0.4'
+gem 'carrierwave', '0.6.2'
+# gem 'carrierwave-mongoid', :github => 'jnicklas/carrierwave-mongoid', :branch => 'mongoid-3.0' 
+# gem 'mini_magick', '3.4'
+# gem 'rack-raw-upload', '1.1.0'
 
 gem 'devise'
 
 gem 'omniauth-facebook'
+
+gem 'will_paginate-bootstrap'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'

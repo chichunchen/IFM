@@ -53,5 +53,8 @@
     <% end %>
     </tbody>
   </table>
+  <center>
+    <%= will_paginate @books, renderer: BootstrapPagination::Rails %>
+  </center>
   <br>
 </div>
