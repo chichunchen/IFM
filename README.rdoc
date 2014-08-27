@@ -1,4 +1,8 @@
-* connect the seller
+next:
+
+* category
+
+* fb message the seller
 
 * user reply in books
 

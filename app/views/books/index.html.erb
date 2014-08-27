@@ -18,7 +18,7 @@
 
     <tbody>
       <% @books.each do |book| %>
-      <tr data-link="<%= book_path(book) %>">
+      <tr>
         <td>
          <%= link_to book.name, book_path(book) %>
         </td>
@@ -26,7 +26,7 @@
           <%= truncate(strip_tags(book.description), :length => 80) %>
         </td>
         <td>
-          <%= image_tag(book.picture_url, :width => 120) if book.picture.present? %>
+          <%= link_to image_tag(book.picture_url, :width => 120), book_path(book) if book.picture.present? %>
         </td>
         <td> <%= number_to_currency(book.price) %> </td>
         <td> <%= book.course %> </td>
@@ -34,7 +34,12 @@
           <em> <%= book.updated_at %> </em>
         </td>
         <td>
-          <%= link_to User.find(book.user_id).name, '#' %>
+          <%= mail_to( User.find(book.user_id).email,
+                     "寄信給 #{User.find(book.user_id).name}",
+                      :subject => "Support question from #{User.find(book.user_id).name}",
+                      :encode => "javascript" ) %>
+          <br><br>
+          <%= link_to( "FB #{User.find(book.user_id).name}", '#' ) %>
         </td>
         <td>
           <% if current_user && book.editable_by?(current_user) %>
