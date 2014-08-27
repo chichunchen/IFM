@@ -11,6 +11,7 @@ gem 'carrierwave', '0.6.2'
 gem 'devise'
 
 gem 'omniauth-facebook'
+gem "social-buttons", git: "git://github.com/kristianmandrup/social-buttons.git"
 
 gem 'will_paginate-bootstrap'
 
