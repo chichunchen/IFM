@@ -34,15 +34,14 @@
           <em> <%= book.updated_at %> </em>
         </td>
         <td>
-          <%= mail_to( User.find(book.user_id).email,
+          <% unless current_user && book.editable_by?(current_user) %>
+              <%= mail_to( User.find(book.user_id).email,
                      "寄信給 #{User.find(book.user_id).name}",
-                      :subject => "Support question from #{User.find(book.user_id).name}",
+                      :subject => "有人對你的書有興趣喔！",
                       :encode => "javascript" ) %>
           <br><br>
           <%= link_to( "FB #{User.find(book.user_id).name}", '#' ) %>
-        </td>
-        <td>
-          <% if current_user && book.editable_by?(current_user) %>
+          <% else %>
               <%= link_to("更新", 
                           edit_book_path(book), 
                           :class => "btn btn-sm btn-default")%>
