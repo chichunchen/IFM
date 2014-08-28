@@ -1,6 +1,6 @@
 next:
 
-* category
+* book category with tag
 
 * fb message the seller
 

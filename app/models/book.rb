@@ -6,6 +6,8 @@ class Book < ActiveRecord::Base
 
   	belongs_to :owner, :class_name => "User", :foreign_key => :user_id
 
+  	acts_as_taggable # Alias for acts_as_taggable_on :tags
+
   	def editable_by?(user)
 		user && user == owner
 	end

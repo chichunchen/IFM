@@ -1,14 +1,22 @@
 <div class="col-md-12">
   <div class="group">
-    <% if current_user && @book.editable_by?(current_user) %>
+    <% if same_author?(@book) %>
       <%= link_to '更新', edit_book_path(@book), :class => "btn btn-primary pull-right" %>
     <% end %>
-    <%= link_to 'Back', books_path, :class => "btn btn-default" %>
+    <%= link_to '返回', books_path, :class => "btn btn-default" %>
   </div>
 
   <h1>
     <%= @book.name %>
   </h1>
+
+  <h3>
+    <% unless same_author?(@book) %>
+      <%= order_mail(@book) %>
+      <br><br>
+      <%= link_to( "FB #{User.find(@book.user_id).name}", '#' ) %>
+    <% end %>
+  </h3>
 
   <p>
     <%= image_tag(@book.picture_url, :width => 250) if @book.picture.present? %>
@@ -23,12 +31,9 @@
   </h4>
 
   <h4>
-    <%= @book.course %>
+    看看同種類書籍：<%= raw @book.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
   </h4>
 
-  <h3>
-    <%= User.find(@book.user_id).name %>
-  </h3>
 </div>
 
 <center>

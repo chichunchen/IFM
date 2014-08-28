@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  get 'tags/:tag', to: 'books#index', as: :tag
 end

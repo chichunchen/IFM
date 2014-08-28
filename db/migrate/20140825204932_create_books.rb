@@ -5,7 +5,6 @@ class CreateBooks < ActiveRecord::Migration
       t.text :description
       t.string :picture
       t.decimal :price
-      t.string :course
 
       t.timestamps
     end
