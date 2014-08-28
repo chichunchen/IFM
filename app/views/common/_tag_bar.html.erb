@@ -1,0 +1,18 @@
+<div class="col-md-2">
+    <div id="tag_cloud">
+      <div class="list-group">
+
+        <span href="#" class="list-group-item active">
+            課程標籤
+            <span class="pull-right" id="slide-submenu">
+                數量<i class="fa fa-times"></i>
+            </span>
+        </span>
+        <% tag_cloud Book.tag_counts, %w[s m l] do |tag, css_class| %>
+          <p class="list-group-item">
+              <%= link_to tag.name, tag_path(tag.name), class: css_class %> <span class="badge"><%= tag.count %></span>
+          </p>
+        <% end %>
+      </div>
+    </div>
+</div>

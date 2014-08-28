@@ -1,41 +1,46 @@
-<div class="col-md-12">
-  <div class="group">
-    <% if same_author?(@book) %>
-      <%= link_to '更新', edit_book_path(@book), :class => "btn btn-primary pull-right" %>
-    <% end %>
-    <%= link_to '返回', books_path, :class => "btn btn-default" %>
+<div class="row">
+
+  <%= render "common/tag_bar" %>
+
+  <div class="col-md-10">
+    <div class="group">
+      <% if same_author?(@book) %>
+        <%= link_to '更新', edit_book_path(@book), :class => "btn btn-primary pull-right" %>
+      <% end %>
+      <%= link_to '返回', books_path, :class => "btn btn-default" %>
+    </div>
+
+    <h1>
+      <%= @book.name %>
+    </h1>
+
+    <h3>
+      <% unless same_author?(@book) %>
+        <%= order_mail(@book) %>
+        <br><br>
+        <%= link_to( "FB #{User.find(@book.user_id).name}", '#' ) %>
+      <% end %>
+    </h3>
+
+    <p>
+      <%= image_tag(@book.picture_url, :width => 250) if @book.picture.present? %>
+    </p>
+
+    <h4>
+      <%= simple_format(@book.description) %>
+    </h4>
+
+    <h4 class="lead">
+      <%= number_to_currency(@book.price) %>
+    </h4>
+
+    <h4>
+      看看同種類書籍：<%= raw @book.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+    </h4>
+
   </div>
 
-  <h1>
-    <%= @book.name %>
-  </h1>
-
-  <h3>
-    <% unless same_author?(@book) %>
-      <%= order_mail(@book) %>
-      <br><br>
-      <%= link_to( "FB #{User.find(@book.user_id).name}", '#' ) %>
-    <% end %>
-  </h3>
-
-  <p>
-    <%= image_tag(@book.picture_url, :width => 250) if @book.picture.present? %>
-  </p>
-
-  <h4>
-    <%= simple_format(@book.description) %>
-  </h4>
-
-  <h4 class="lead">
-    <%= number_to_currency(@book.price) %>
-  </h4>
-
-  <h4>
-    看看同種類書籍：<%= raw @book.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-  </h4>
-
+  <center>
+      <div class="fb-comments" data-href="http://example.com/comments" data-numposts="5" data-colorscheme="light"></div>
+  </center>
 </div>
-
-<center>
-    <div class="fb-comments" data-href="http://example.com/comments" data-numposts="5" data-colorscheme="light"></div>
-</center>

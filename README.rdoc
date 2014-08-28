@@ -1,11 +1,11 @@
 next:
 
+* redesign show page
+
 * multi picture upload
 
 * the mechanism to delete sold book
 
 * send fb message to the seller
 
-* index order with different ways
-
-paginate
+* paginate
