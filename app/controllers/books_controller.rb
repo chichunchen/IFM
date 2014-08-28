@@ -8,7 +8,7 @@ class BooksController < ApplicationController
     if params[:tag]
       @books = Book.tagged_with(params[:tag]).order("created_at DESC")
     else
-      @books = Book.page(params[:page]).per_page(10).order("created_at DESC")
+      @books = Book.all.order("created_at DESC")
     end
   end
 
