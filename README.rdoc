@@ -1,7 +1,5 @@
 next:
 
-* book category with tag
-
 * fb message the seller
 
 * index order with different ways
