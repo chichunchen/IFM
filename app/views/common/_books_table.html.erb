@@ -42,9 +42,10 @@
           
           <!-- other -->
           <td>
-            <% unless same_author?(book) %>
+            <% unless same_seller?(book) %>
                 <%= order_mail(book) %>&nbsp;
-                <%= order_fb %>
+                <%= render "common/fb_send" %>
+
             <% else %>
                 <%= link_to("更新", 
                             edit_book_path(book), 

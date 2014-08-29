@@ -1,11 +1,15 @@
 <h1>
   <%= @book.name %>&nbsp;
-
-  <% unless same_author?(@book) %>
-    <%= order_mail(@book) %>
-    <div class="fb-send" data-href="https://developers.facebook.com/docs/plugins/" data-colorscheme="dark"></div>
-  <% end %>
 </h1>
+
+<h4>
+	賣家：<%= find_seller(@book).name %><br><br>
+	<% unless same_seller?(@book) %>
+  	聯絡方式：
+    <%= order_mail(@book) %>
+    <%= render "common/fb_send" %>
+  <% end %>
+</h4>
 
 <h4>
   <%= simple_format(@book.description) %>
