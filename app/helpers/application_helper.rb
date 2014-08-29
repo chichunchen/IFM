@@ -17,4 +17,18 @@ module ApplicationHelper
 
     alerts.join("\n").html_safe
   end
+
+  def contact_dev
+    mail_to( "chi.chun_chen@icloud.com",
+                 "給點建議",
+                 :subject => "資財二手書-建議",
+                 :encode => "javascript" )
+  end
+
+  def sortable(column, title = nil)
+    title ||= column.titleize
+    direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
+    link_to title, :sort => column, :direction => direction
+  end
 end
+

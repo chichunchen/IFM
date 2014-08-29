@@ -24,6 +24,7 @@ jQuery(function($) {
 	});
 })
 
+
 // facebook like
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -33,3 +34,20 @@ jQuery(function($) {
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=697573106999159&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+
+
+// tagbar
+$(function(){
+
+	$('#slide-submenu').on('click',function() {			        
+        $(this).closest('.list-group').fadeOut('slide',function(){
+        	$('.mini-submenu').fadeIn();	
+        });    
+    });
+
+	$('.mini-submenu').on('click',function(){		
+        $(this).next('.list-group').toggle('slide');
+        $('.mini-submenu').hide();
+	})
+})
+

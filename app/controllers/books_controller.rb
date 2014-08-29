@@ -1,21 +1,27 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  helper_method :sort_column, :sort_direction
 
   # GET /books
   # GET /books.json
   def index
-    # @books = Book.page(params[:page]).per_page(10).order("created_at DESC")
+    # @books = Book.page(params[:page]).per_page(10)
     if params[:tag]
-      @books = Book.tagged_with(params[:tag]).order("created_at DESC")
+      @books = Book.tagged_with(params[:tag]).order(sort_column + " " + sort_direction)
     else
-      @books = Book.all.order("created_at DESC")
+      @books = Book.order(sort_column + " " + sort_direction)
     end
   end
 
   # GET /books/1
   # GET /books/1.json
   def show
-    @book = Book.find(params[:id])
+    @book = Book.find_by(id: params[:id])
+    if @book.nil?
+      @books = Book.all
+      flash.now[:alert] = "您要找的書籍不存在。"
+      render "index"
+    end
   end
 
   # GET /books/new
@@ -35,7 +41,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to @book, notice: '恭喜！已成功建立書籍.' }
+        format.html { redirect_to @book, notice: '恭喜！已成功建立書籍。' }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new }
@@ -79,5 +85,13 @@ class BooksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
       params.require(:book).permit(:name, :description, :picture, :price, :course, :tag_list)
+    end
+
+    def sort_column
+      Book.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    end
+    
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 end

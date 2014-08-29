@@ -10,11 +10,12 @@
     <table class="table table-hover">
       <thead> 
         <tr>
-          <th>簡介</th>
-          <th>圖片</th>
-          <th>課程標籤</th>
-          <th>上架時間</th>
-          <th>賣家</th>
+          <th> <%= sortable "name", "簡介" %> / <%= sortable "price", "價格" %>
+          </th>
+          <th> </th>
+          <th> 課程標籤 </th>
+          <th> <%= sortable "created_at", "上架時間" %> </th>
+          <th> 賣家 </th>
           <th colspan="3"></th>
       </tr>
       </thead>
