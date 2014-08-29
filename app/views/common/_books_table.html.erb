@@ -43,9 +43,8 @@
           <!-- other -->
           <td>
             <% unless same_author?(book) %>
-                <%= order_mail(book) %>
-            <br><br>
-            <%= link_to( "FB #{User.find(book.user_id).name}", '#' ) %>
+                <%= order_mail(book) %>&nbsp;
+                <%= order_fb %>
             <% else %>
                 <%= link_to("更新", 
                             edit_book_path(book), 

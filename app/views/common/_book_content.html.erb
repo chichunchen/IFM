@@ -1,14 +1,11 @@
 <h1>
-  <%= @book.name %>
-</h1>
+  <%= @book.name %>&nbsp;
 
-<h3>
   <% unless same_author?(@book) %>
     <%= order_mail(@book) %>
-    <br><br>
-    <%= link_to( "FB #{User.find(@book.user_id).name}", '#' ) %>
+    <div class="fb-send" data-href="https://developers.facebook.com/docs/plugins/" data-colorscheme="dark"></div>
   <% end %>
-</h3>
+</h1>
 
 <h4>
   <%= simple_format(@book.description) %>
