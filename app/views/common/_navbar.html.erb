@@ -9,6 +9,16 @@
       <a class="navbar-brand" href="/books/new">
         <small>賣書</small>
       </a>
+      <form class="navbar-form navbar-left" role="search">
+        <%= form_tag books_path, :method => 'get' do %>
+          <%= hidden_field_tag :direction, params[:direction] %>
+          <%= hidden_field_tag :sort, params[:sort] %>
+            <div class="form-group">
+              <%= text_field_tag :search, params[:search], :placeholder => "Search", :class => "form-control" %>
+              <%= submit_tag "Submit", :name => nil, :class => "btn btn-default" %>
+            </div>
+        <% end %>
+      </form>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
