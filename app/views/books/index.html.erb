@@ -5,12 +5,18 @@
     <div class="group">
       <%= link_to '全部書籍', books_path, :class => "btn btn-default" %>
       <%= link_to '我要賣書', new_book_path, :class => "btn btn-primary pull-right" %>
+      <%= form_tag books_path, :method => 'get' do %>
+        <%= hidden_field_tag :direction, params[:direction] %>
+        <%= hidden_field_tag :sort, params[:sort] %>
+        <p> <%= text_field_tag :search, params[:search] %> </p>
+        <p> <%= submit_tag "Search", :name => nil %> </p>
+      <% end %>
     </div>
 
     <table class="table table-hover">
       <thead> 
         <tr>
-          <th> <%= sortable "name", "簡介" %> / <%= sortable "price", "價格" %>
+          <th> 排序： <%= sortable "name", "簡介" %> / <%= sortable "price", "價格" %>
           </th>
           <th> </th>
           <th> 課程標籤 </th>
@@ -71,3 +77,6 @@
     <br>
   </div>
 </div>
+<center>
+  <%= will_paginate @books, renderer: BootstrapPagination::Rails %>
+</center>

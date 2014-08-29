@@ -7,9 +7,9 @@ class BooksController < ApplicationController
   def index
     # @books = Book.page(params[:page]).per_page(10)
     if params[:tag]
-      @books = Book.tagged_with(params[:tag]).order(sort_column + " " + sort_direction)
+      @books = Book.tagged_with(params[:tag]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
     else
-      @books = Book.order(sort_column + " " + sort_direction)
+      @books = Book.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
     end
   end
 

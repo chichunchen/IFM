@@ -11,4 +11,12 @@ class Book < ActiveRecord::Base
   	def editable_by?(user)
 		user && user == owner
 	end
+
+	def self.search(search)
+	  	if search
+	    	where('name LIKE ?', "%#{search}%")
+	  	else
+	    	all
+	  	end
+	end
 end
