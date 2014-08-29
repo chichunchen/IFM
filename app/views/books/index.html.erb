@@ -6,68 +6,7 @@
       <%= link_to '全部書籍', books_path, :class => "btn btn-default" %>
       <%= link_to '我要賣書', new_book_path, :class => "btn btn-primary pull-right" %>
     </div>
-
-    <table class="table table-hover">
-      <thead> 
-        <tr>
-          <th> 排序： <%= sortable "name", "簡介" %> / <%= sortable "price", "價格" %>
-          </th>
-          <th> </th>
-          <th> 課程標籤 </th>
-          <th> <%= sortable "created_at", "上架時間" %> </th>
-          <th> 賣家 </th>
-          <th colspan="3"></th>
-      </tr>
-      </thead>
-
-      <tbody>
-        <% @books.each do |book| %>
-        <tr>
-          <!-- 名稱/價格 -->
-          <td class="col-md-3">
-            <%= link_to book.name, book_path(book) %>
-            <i> &nbsp;<%= number_to_currency(book.price) %> </i>
-            <br><br>
-            <%= truncate(strip_tags(book.description), :length => 80) %>
-          </td>
-  
-          <!-- 圖片 -->          
-          <td>
-            <%= link_to image_tag(book.picture_url, :width => 120), book_path(book) if book.picture.present? %>
-          </td>
- 
-          <!-- tag -->
-          <td class="col-md-2">
-            <%= raw book.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-          </td>
-          
-          <!-- time -->
-          <td>
-            <em> <%= book.created_at %> </em>
-          </td>
-          
-          <!-- other -->
-          <td>
-            <% unless same_author?(book) %>
-                <%= order_mail(book) %>
-            <br><br>
-            <%= link_to( "FB #{User.find(book.user_id).name}", '#' ) %>
-            <% else %>
-                <%= link_to("更新", 
-                            edit_book_path(book), 
-                            :class => "btn btn-sm btn-default")%>
-
-                <%= link_to("下架", 
-                            book_path(book), 
-                            :class => "btn btn-sm btn-default", 
-                            :method=>:delete,
-                            data: { confirm: "Are you sure?" } )%>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+    <%= render "common/books_table" %>
     <br>
   </div>
 </div>

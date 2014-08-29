@@ -50,4 +50,3 @@ $(function(){
         $('.mini-submenu').hide();
 	})
 })
-
