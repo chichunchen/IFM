@@ -19,14 +19,14 @@
         <tr>
           <!-- 名稱/價格 -->
           <td class="col-md-3">
-            <%= link_to book.name, book_path(book) %>
+            <h4><%= link_to book.name, book_path(book) %></h4>
             <i> &nbsp;<%= number_to_currency(book.price) %> </i>
             <br><br>
             <%= truncate(strip_tags(book.description), :length => 80) %>
           </td>
   
           <!-- 圖片 -->          
-          <td>
+          <td class="col-md-2">
             <%= link_to image_tag(book.picture_url, :width => 120), book_path(book) if book.picture.present? %>
           </td>
  
