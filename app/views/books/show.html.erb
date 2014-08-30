@@ -2,12 +2,12 @@
 
   <%= render "common/tag_bar" %>
 
-  <div class="col-md-4">
+  <div class="col-md-5 text-center">
     <br>
     <%= image_tag(@book.picture_url, :width => 300) if @book.picture.present? %>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md-5">
     <%= render "common/book_content" %>
   </div>
 </div>
