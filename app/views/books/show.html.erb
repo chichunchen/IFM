@@ -2,15 +2,6 @@
 
   <%= render "common/tag_bar" %>
 
-  <div class="col-md-10">
-    <div class="group">
-      <% if same_seller?(@book) %>
-        <%= link_to '更新', edit_book_path(@book), :class => "btn btn-primary pull-right" %>
-      <% end %>
-      <%= link_to '返回', books_path, :class => "btn btn-default" %>
-    </div>
-  </div>
-
   <div class="col-md-4">
     <br>
     <%= image_tag(@book.picture_url, :width => 300) if @book.picture.present? %>

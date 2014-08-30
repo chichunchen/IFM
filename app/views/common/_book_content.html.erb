@@ -8,6 +8,8 @@
   	聯絡方式：
     <%= order_mail(@book) %>
     <%= render "common/fb_send" %>
+  <% else %>
+    <%= link_to '更新', edit_book_path(@book), :class => "btn btn-primary" %>
   <% end %>
 </h4>
 
