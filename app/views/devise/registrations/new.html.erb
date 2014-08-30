@@ -7,22 +7,20 @@
     <%= devise_error_messages! %>
 
     <div class="form-inputs">
-      <%= f.label :name %><br />
-      <%= f.text_field :name, autofocus:true, :class => "form-control" %>
+      <%= f.text_field :name, autofocus:true, :class => "form-control", :placeholder => "姓名" %>
 
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, :class => "form-control" %>
+      <br>
+      <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "信箱" %>
+      <br>
+      <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "密碼" %>
 
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
-
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
+      <br>
+      <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", :placeholder => "驗證密碼" %>
     </div>
 
     <hr>
     <div class="form-actions">
-    	<%= f.submit "Sign up", :class => "btn btn-primary" %>
+    	<%= f.submit "提交", :class => "btn btn-primary" %>
     </div>
 
   <% end %>
