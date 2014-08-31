@@ -7,7 +7,7 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     if params[:tag]
-      @books = Book.tagged_with(params[:tag]).order(sort_column + " " + sort_direction).paginate(:per_page => 8, :page => params[:page])
+      @books = Book.tagged_with(params[:tag]).search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 8, :page => params[:page])
     else
       @books = Book.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 8, :page => params[:page])
     end
