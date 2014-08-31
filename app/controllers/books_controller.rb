@@ -1,11 +1,11 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  helper_method :sort_column, :sort_direction
+  before_action :search_not_in_index, only: [:new, :edit, :show]
+  helper_method :sort_column, :sort_direction, :search_not_in_index
 
   # GET /books
   # GET /books.json
   def index
-    # @books = Book.page(params[:page]).per_page(10)
     if params[:tag]
       @books = Book.tagged_with(params[:tag]).order(sort_column + " " + sort_direction).paginate(:per_page => 8, :page => params[:page])
     else
@@ -93,5 +93,11 @@ class BooksController < ApplicationController
     
     def sort_direction
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+    end
+
+    def search_not_in_index
+      if params[:search].present?
+        redirect_to :action => 'index', :search => params[:search]
+      end
     end
 end
