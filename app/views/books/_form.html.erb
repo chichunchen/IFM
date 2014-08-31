@@ -21,6 +21,13 @@
       <%= f.text_field :price, :class => "form-control", :placeholder => "價格，請填入純數字。" %>
       
       <br>
+      <%= f.label :legal, "版本：" %>
+      <%= f.select :legal, [['正版', true], ['印刷品', false]] %>&nbsp;&nbsp;
+      <%= f.label :original, "語言：" %>
+      <%= f.select :original, [['原文', true], ['中文', false]] %>
+      <br>
+
+      <br>
       <%= 
         f.text_area :description, :class => "form-control", :rows => 5, :placeholder => "物品狀況，例如：幾成新, 有無筆記等等。"
       %>

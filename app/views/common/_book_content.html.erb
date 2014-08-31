@@ -1,5 +1,9 @@
 <h1>
   <b><%= @book.name %>&nbsp;</b>
+  <small>
+    <% if @book.legal %> 正版 <% else %> 印刷品 <% end %>
+    <% if @book.original %> 原文 <% else %> 中文 <% end %>
+  </small>
 </h1>
 
 <h4>
@@ -9,7 +13,7 @@
     <%= order_mail(@book) %>
     <%= render "common/fb_send" %>
   <% else %>
-    <%= link_to '更新', edit_book_path(@book), :class => "btn btn-primary" %>
+    <%= link_to '更新', edit_book_path(@book), :class => "btn btn-warning" %>
   <% end %>
 </h4>
 

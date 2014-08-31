@@ -36,6 +36,9 @@
           <!-- tag -->
           <td class="col-md-2">
             <%= raw book.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+            <br>
+            <% if book.legal %>正版<% else %>印刷<% end %>&nbsp;
+            <% if book.original %>原文<% else %>中文<% end %>
           </td>
           
           <!-- time -->

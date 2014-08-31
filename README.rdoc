@@ -1,3 +1,4 @@
 * book picture not validate, not multi
 
 * 當選擇tag時做的search是成功的，但還未幫tag標顏色
+
