@@ -14,4 +14,12 @@ module BooksHelper
 	def same_seller? book
 		current_user && book.editable_by?(current_user)	
 	end
+
+	def description_length
+		35
+	end
+
+	def more_description? book
+		book.description.length > description_length
+	end
 end
