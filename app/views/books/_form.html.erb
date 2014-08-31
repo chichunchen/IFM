@@ -26,10 +26,10 @@
       %>
 
       <br>
-      <%= f.text_field :tag_list, :class => "form-control", :placeholder => "課程標籤，例如：演算法, 資管, 程式設計" %>
+      <%= f.select :tag_list, options_for_select(ActsAsTaggableOn::Tag.all), {}, {:multiple => false, :class => "form-control", :hint => "選擇種類"} %>
 
       <hr>
-      <%= f.label :picture, t("上傳圖片(必要)") %><br>
+      <%= f.label :picture, "上傳圖片" %><br>
       <%= f.file_field :picture %>
     </div>
     
