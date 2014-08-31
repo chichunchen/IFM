@@ -1,5 +1,5 @@
 <h1>
-  <%= @book.name %>&nbsp;
+  <b><%= @book.name %>&nbsp;</b>
 </h1>
 
 <h4>
@@ -13,13 +13,13 @@
   <% end %>
 </h4>
 
-<h4>
+<h4 class="lead">
   <%= simple_format(@book.description) %>
 </h4>
 
-<h4 class="lead">
+<h3 class="text-danger">
   <%= number_to_currency(@book.price) %>
-</h4>
+</h3>
 
 <h4>
   看看同種類書籍：<%= raw @book.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>

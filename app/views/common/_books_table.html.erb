@@ -22,7 +22,7 @@
             <h4><%= link_to book.name, book_path(book) %></h4>
             <i> &nbsp;<%= number_to_currency(book.price) %> </i>
             <br><br>
-            <%= truncate(strip_tags(book.description), :length => 80) %>
+            <%= truncate(strip_tags(book.description), :length => 35) %>
           </td>
   
           <!-- 圖片 -->          
