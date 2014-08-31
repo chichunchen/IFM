@@ -1,7 +1,0 @@
-next:
-
-* multi picture upload
-
-* the mechanism to delete sold book
-
-* book reply
