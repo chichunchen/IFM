@@ -10,9 +10,9 @@
   <hr>
   <div class="form-inputs">
   	<% unless user_signed_in? %>
-	  	<%= button_to '臉書登入', user_omniauth_authorize_path(:facebook), :class => "form-control", :method => 'get' %>
+	  	<%= button_to '臉書登入', user_omniauth_authorize_path(:facebook), :class => "btn btn-info btn-lg btn-block", :method => 'get' %>
 	  	<br>
-	  	<%= button_to '登入', new_user_session_path ,:class => "form-control", :method => 'get' %>
+	  	<%= button_to '登入', new_user_session_path ,:class => "btn btn-info btn-lg btn-block", :method => 'get' %>
   	<% else -%>
 	  	<%= button_to("買書", books_path, :class => "form-control", :method => 'get') %>
 	  	<br>
@@ -20,8 +20,8 @@
 	<% end %>
   </div>
 
-  <br>
-  <div class="panel panel-primary">
+  <hr>
+  <div class="panel panel-warning">
 	  <div class="panel-heading">
 	    <h3 class="panel-title">Next</h3>
 	  </div>
