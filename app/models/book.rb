@@ -3,6 +3,8 @@ class Book < ActiveRecord::Base
 
 	validates :name, :description, :presence => true
   	validates :price, :numericality => { :greater_than_or_equal_to => 0.0 }
+  	validates :legal, inclusion: { in: [true, false] }
+  	validates :original, inclusion: { in: [true, false] }
   	# validates :picture, presence: true
   	
 
