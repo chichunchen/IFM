@@ -1,6 +1,6 @@
 <h1>
   <b><%= @book.name %>&nbsp;</b>
-  <small>
+  <small class="text-danger">
     <% if @book.legal %> 正版 <% else %> 印刷品 <% end %>
     <% if @book.original %> 原文 <% else %> 中文 <% end %>
   </small>
