@@ -3,13 +3,40 @@
         <tr>
           <th> 排序： 
           <%= sortable "name", "書名" %>
+          <% if params[:sort] == "name" %>
+            <% if params[:direction] == "asc" %>
+              <span class="glyphicon glyphicon-sort-by-attributes"></span>
+            <% elsif params[:direction] == "desc" %>
+              <span class="glyphicon glyphicon-sort-by-attributes-alt
+"></span>
+            <% end %>
+          <% end %>
           / 
           <%= sortable "price", "價格" %>
+          <% if params[:sort] == "price" %>
+            <% if params[:direction] == "asc" %>
+              <span class="glyphicon glyphicon-sort-by-attributes"></span>
+            <% elsif params[:direction] == "desc" %>
+              <span class="glyphicon glyphicon-sort-by-attributes-alt"></span>
+            <% end %>
+          <% end %>
           </th>
           <th> </th>
-          <th> 種類 </th>
-          <th> <%= sortable "created_at", "上架時間" %> </th>
-          <th> 賣家 </th>
+          <th> <span class="glyphicon glyphicon-tag"></span> </th>
+          <th> 
+            <%= sortable "created_at", "上架時間" %> 
+            <% if params[:sort] == "created_at" %>
+              <% if params[:direction] == "asc" %>
+                <p class="glyphicon glyphicon-sort-by-attributes"></p>
+            <% elsif params[:direction] == "desc" %>
+                <p class="glyphicon glyphicon-sort-by-attributes-alt"></p>
+              <% end %>
+            <% end %>
+          </th>
+
+          <th> 
+            <span class="glyphicon glyphicon-user"> </span> 
+          </th>
           <th colspan="3"></th>
       </tr>
       </thead>
@@ -53,6 +80,7 @@
           <!-- other -->
           <td>
             <% unless same_seller?(book) %>
+            <h4><%= find_seller(book).name %></h4>
                 <%= order_mail(book) %>&nbsp;
                 <%= render "common/fb_send" %>
 
