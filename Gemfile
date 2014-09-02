@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.2'
+
 gem 'bootstrap-sass'
 
 # gem 'mongoid', '3.0.4'
