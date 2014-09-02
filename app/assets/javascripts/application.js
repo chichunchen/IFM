@@ -10,9 +10,11 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require bootstrap/
+//= require bootstrap
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap/dropdown
+//= require bootstrap/alert
 //= require turbolinks
 //= require_tree .
 
