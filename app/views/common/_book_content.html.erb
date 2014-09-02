@@ -7,8 +7,7 @@
 </h1>
 
 <h4>
-	<span class="glyphicon glyphicon-user"> </span> 
-  <%= find_seller(@book).name %><br><br>
+	賣家：<%= find_seller(@book).name %><br><br>
 	<% unless same_seller?(@book) %>
   	聯絡方式：
     <%= order_mail(@book) %>
