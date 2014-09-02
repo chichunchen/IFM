@@ -5,7 +5,7 @@ create_account = User.create([email: 'example@gmail.com',
 							  name: '測試用帳號'])
 
 tag_list = ["資訊", "財金", "外語", "通識", "其他"]
-create_tag = for i in 1..tag_list.length do
+create_tag = for i in 0..tag_list.length do
                   ActsAsTaggableOn::Tag.create(:name => tag_list[i])
              end
 
