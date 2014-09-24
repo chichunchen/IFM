@@ -14,3 +14,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore facebook authenticate for testing and production
+/config/initializers/devise.rb
