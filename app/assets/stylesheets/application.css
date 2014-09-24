@@ -15,3 +15,11 @@
  */
 
 @import "bootstrap";
+
+ body {
+ 	padding: 70px;
+ }
+
+	.v-center {
+	 margin-top: 7%;
+	}

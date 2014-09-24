@@ -21,8 +21,8 @@
       <%= f.text_field :price, :class => "form-control", :placeholder => "價格，請填入純數字。" %>
       
       <br>
-      <%= f.select :legal, [['正版', true], ['印刷品', false]], :prompt => "正版 / 印刷品", :class => "form-control" %>&nbsp;&nbsp;
-      <%= f.select :original, [['原文', true], ['中文', false]], :prompt => "原文 / 中文", :class => "form-control" %>
+      <%= f.select :legal, [['正版', true], ['印刷品', false]], {}, :prompt => "正版 / 印刷品", :class => "form-control" %>&nbsp;&nbsp;
+      <%= f.select :original, [['原文', true], ['中文', false]], {}, :prompt => "原文 / 中文", :class => "form-control" %>
       <br>
 
       <br>
@@ -32,7 +32,7 @@
 
       <br>
       <%= f.label :tag_list, "選擇種類" %>
-      <%= f.select :tag_list, options_for_select(ActsAsTaggableOn::Tag.all), {}, {:multiple => false, :class => "form-control", :prompt => "選擇種類"} %>
+      <%= f.select :tag_list, options_for_select(ActsAsTaggableOn::Tag.all), {}, {:multiple => false, :class => "form-control"} %>
 
       <hr>
       <%= f.label :picture, "上傳圖片" %><br>

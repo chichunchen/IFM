@@ -20,7 +20,7 @@ module ApplicationHelper
 
   def contact_dev
     mail_to( "chi.chun_chen@icloud.com",
-                 "給點建議",
+                 "任何建議",
                  :subject => "資財二手書-建議",
                  :encode => "javascript" )
   end
